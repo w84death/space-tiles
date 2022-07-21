@@ -38,10 +38,10 @@ tracks/0/path = NodePath("Camera3D:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 6.7, 10.8, 18.1, 24, 29.9, 33.9, 38),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 3.2, 6, 9.2, 13.1, 18.1, 22.1, 28, 33.3, 38),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(1.109, 4.755, 13.627), Vector3(4.212, 5.012, 7.419), Vector3(1.409, 4.095, 5.838), Vector3(-6.131, 5.841, 8.004), Vector3(-5.046, 6.38, 2.425), Vector3(1.495, 5.013, -2.234), Vector3(4.22224, 4.19035, 4.10884), Vector3(4.983, 3.759, 7.777)]
+"values": [Vector3(-0.834, 3.544, 27.575), Vector3(-0.834, 3.544, 17.098), Vector3(0.947, 5.989, 13.2), Vector3(4.212, 5.012, 7.419), Vector3(1.409, 5.163, 5.838), Vector3(-6.131, 7.835, 8.004), Vector3(-5.046, 7.308, 2.425), Vector3(1.495, 5.861, -2.234), Vector3(4.22224, 4.19035, 4.10884), Vector3(3.551, 3.461, 13.002)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -50,10 +50,10 @@ tracks/1/path = NodePath("Camera3D:rotation")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 6.7, 10.8, 18.1, 24, 29.9, 33.9, 38),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 2.2, 5, 8.4, 13.1, 18.1, 22.1, 28, 33.3, 38),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0.00872665, 1.51669, -0.0244346), Vector3(-0.459021, 0.0950505, 0.00523597), Vector3(-0.268781, 1.35088, 0.270526), Vector3(0.277507, 1.40499, 0), Vector3(-0.0680678, 2.0176, -0.00174533), Vector3(-0.534071, 3.09621, -0.00174533), Vector3(-0.226773, 3.34255, 0.00205328), Vector3(-0.148353, 3.14334, -0.00174533)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0.0715585, -0.413643, -0.0645772), Vector3(-0.459022, 0.0942478, 0.116937), Vector3(-0.268781, 1.35088, 0.270526), Vector3(-0.34732, 1.40499, 0), Vector3(-0.809833, 2.0176, -0.00174533), Vector3(-1.35438, 3.09621, -0.00174533), Vector3(-0.226773, 3.34255, 0.00205328), Vector3(0.122173, 1.54462, -0.00174533)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -62,10 +62,10 @@ tracks/2/path = NodePath("AudioStreamPlayer:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.2, 37.9),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [true, true]
 }
 
 [sub_resource type="Animation" id="Animation_66bio"]
