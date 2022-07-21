@@ -1,0 +1,16 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dn2vn388v2flq"
+path="res://.godot/imported/Shaolin Dub - Shadow-Man.mp3-2ce876a671e8399551a609c216ae1b28.mp3str"
+
+[deps]
+
+source_file="res://audio/Shaolin Dub - Shadow-Man.mp3"
+dest_files=["res://.godot/imported/Shaolin Dub - Shadow-Man.mp3-2ce876a671e8399551a609c216ae1b28.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0

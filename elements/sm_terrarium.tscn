@@ -1,0 +1,112 @@
+[gd_scene load_steps=12 format=3 uid="uid://bpn8cv3bkbumt"]
+
+[ext_resource type="PackedScene" uid="uid://cnxiw8ltkp5w5" path="res://gltfs/sm_terrarium.glb" id="1_vard8"]
+[ext_resource type="PackedScene" uid="uid://bgvk2mo780fvy" path="res://gltfs/sm_plant.glb" id="2_8641u"]
+[ext_resource type="Texture2D" uid="uid://yqgp874yb221" path="res://textures/T_Decal_Eaerh014.png" id="3_rfhhe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wv444"]
+emission_enabled = true
+emission = Color(0.435294, 0.211765, 0.0117647, 1)
+emission_energy = 11.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oywfj"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.290196)
+metallic = 0.67
+roughness = 0.08
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i6oos"]
+albedo_color = Color(0.196078, 0.286275, 0, 1)
+metallic_specular = 0.55
+roughness = 0.61
+subsurf_scatter_strength = 0.45
+subsurf_scatter_transmittance_enabled = true
+subsurf_scatter_transmittance_color = Color(1, 0.305882, 0.266667, 1)
+subsurf_scatter_transmittance_depth = 3.915
+subsurf_scatter_transmittance_boost = 0.17
+
+[sub_resource type="ParticlesMaterial" id="ParticlesMaterial_w6alk"]
+lifetime_randomness = 0.17
+emission_shape = 1
+emission_sphere_radius = 0.62
+spread = 0.0
+gravity = Vector3(0, -0.566, 0)
+tangential_accel_max = 0.2
+damping_max = 0.04
+scale_min = 0.27
+scale_max = 2.12
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_inn5g"]
+albedo_color = Color(0.839216, 0.635294, 0, 1)
+emission = Color(0.517647, 0.337255, 0, 1)
+emission_energy = 2.57
+
+[sub_resource type="SphereMesh" id="SphereMesh_v7y75"]
+material = SubResource("StandardMaterial3D_inn5g")
+radius = 0.02
+height = 0.039
+radial_segments = 4
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_b6or6"]
+top_radius = 0.65
+bottom_radius = 0.65
+height = 0.12
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fs5cd"]
+emission_enabled = true
+emission = Color(0.937255, 0.937255, 0.937255, 1)
+emission_energy = 10.87
+
+[node name="sm_terrarium" instance=ExtResource("1_vard8")]
+
+[node name="Cube" parent="." index="0"]
+surface_material_override/1 = SubResource("StandardMaterial3D_wv444")
+surface_material_override/2 = SubResource("StandardMaterial3D_oywfj")
+
+[node name="sm_plant" parent="." index="1" instance=ExtResource("2_8641u")]
+
+[node name="Plant001" parent="sm_plant" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_i6oos")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="sm_plant" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.75893, 0)
+amount = 160
+lifetime = 2.5
+process_material = SubResource("ParticlesMaterial_w6alk")
+draw_pass_1 = SubResource("SphereMesh_v7y75")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="sm_plant" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.72871, 0)
+flip_faces = true
+mesh = SubResource("CylinderMesh_b6or6")
+material = SubResource("StandardMaterial3D_fs5cd")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="sm_plant" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.951301, 0)
+flip_faces = true
+mesh = SubResource("CylinderMesh_b6or6")
+material = SubResource("StandardMaterial3D_fs5cd")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.57977, 0)
+light_color = Color(0.807843, 0.32549, 0, 1)
+light_energy = 2.505
+light_size = 0.13
+distance_fade_enabled = true
+distance_fade_begin = 2.36
+distance_fade_length = 1.63
+
+[node name="Decal" type="Decal" parent="." index="3"]
+transform = Transform3D(0.0279216, 0.99961, -4.36943e-08, 0, -4.37114e-08, -1, -0.99961, 0.0279216, -1.22049e-09, 0.616313, 0.507572, 0.052577)
+extents = Vector3(0.429635, 0.365116, 0.12624)
+texture_albedo = ExtResource("3_rfhhe")
+
+[node name="Decal2" type="Decal" parent="." index="4"]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -0.705433, 0.526785, 0.00553179)
+extents = Vector3(0.429635, 0.365116, 0.12624)
+texture_albedo = ExtResource("3_rfhhe")
+
+[editable path="sm_plant"]

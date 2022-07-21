@@ -1,0 +1,23 @@
+[gd_resource type="Environment" format=3 uid="uid://b7i3q721mfk1t"]
+
+[resource]
+background_mode = 1
+tonemap_mode = 2
+tonemap_white = 1.99
+auto_exposure_min_luma = 0.16
+ssr_enabled = true
+ssr_fade_in = 1.00907
+ssr_fade_out = 2.92817
+ssao_enabled = true
+ssil_radius = 2.97
+ssil_sharpness = 0.68
+ssil_normal_rejection = 0.44
+sdfgi_enabled = true
+sdfgi_read_sky_light = false
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0379
+volumetric_fog_gi_inject = 0.13
+adjustment_enabled = true
+adjustment_contrast = 1.15
+adjustment_saturation = 1.2

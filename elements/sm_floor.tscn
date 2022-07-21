@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://527qpy7fd4p"]
+
+[ext_resource type="PackedScene" uid="uid://bvr5b354c75p2" path="res://gltfs/sm_floor.glb" id="1_khtdi"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mrr1p"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o6teb"]
+size = Vector3(2, 0.1, 2)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_mrr1p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0605232, 0)
+shape = SubResource("BoxShape3D_o6teb")
+
+[node name="sm_floor" parent="StaticBody3D" instance=ExtResource("1_khtdi")]

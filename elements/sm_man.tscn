@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://dv52mfov1uox8"]
+
+[ext_resource type="PackedScene" uid="uid://c3ivm6goyilwc" path="res://gltfs/sm_man.glb" id="1_tnrui"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hbkhj"]
+metallic_specular = 0.32
+roughness = 0.1
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy = 2.39
+subsurf_scatter_strength = 0.66
+subsurf_scatter_skin_mode = true
+subsurf_scatter_transmittance_depth = 2.462
+subsurf_scatter_transmittance_boost = 0.77
+
+[sub_resource type="ParticlesMaterial" id="ParticlesMaterial_jq52m"]
+lifetime_randomness = 0.17
+emission_shape = 1
+emission_sphere_radius = 0.35
+gravity = Vector3(0, 1.049, 0)
+tangential_accel_max = 0.13
+scale_min = 0.27
+scale_max = 2.12
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eu0cr"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy = 3.04
+
+[sub_resource type="SphereMesh" id="SphereMesh_ewqyw"]
+material = SubResource("StandardMaterial3D_eu0cr")
+radius = 0.02
+height = 0.039
+radial_segments = 4
+rings = 1
+
+[node name="sm_man" instance=ExtResource("1_tnrui")]
+
+[node name="Man" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_hbkhj")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.396126, 0)
+amount = 32
+lifetime = 1.77
+process_material = SubResource("ParticlesMaterial_jq52m")
+draw_pass_1 = SubResource("SphereMesh_ewqyw")

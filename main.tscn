@@ -1,0 +1,145 @@
+[gd_scene load_steps=10 format=3 uid="uid://bxhsv8keh01ix"]
+
+[ext_resource type="PackedScene" uid="uid://cpp5yeqlpoosn" path="res://levels/L_Lab01.tscn" id="2_8a118"]
+[ext_resource type="Texture2D" uid="uid://cvjhwu2ca3frk" path="res://textures/p1x_video_thumb.png" id="4_qhjjv"]
+[ext_resource type="Environment" uid="uid://b7i3q721mfk1t" path="res://materials/post.tres" id="9_51sri"]
+[ext_resource type="AudioStream" uid="uid://diyjhd1gr2sgm" path="res://audio/Ov Moi Omm - Not Completely Remix.mp3" id="10_xnp4h"]
+
+[sub_resource type="GDScript" id="GDScript_2vp53"]
+script/source = "extends Node3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _input(event):
+	if(event.is_pressed()):
+		get_tree().quit()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="CameraEffects" id="CameraEffects_erdkh"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 14.24
+dof_blur_near_enabled = true
+dof_blur_amount = 0.01
+override_exposure = 2.67
+
+[sub_resource type="Animation" id="Animation_ircnj"]
+resource_name = "New Anim"
+length = 38.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6.7, 10.8, 18.1, 24, 29.9, 33.9, 38),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1.109, 4.755, 13.627), Vector3(4.212, 5.012, 7.419), Vector3(1.409, 4.095, 5.838), Vector3(-6.131, 5.841, 8.004), Vector3(-5.046, 6.38, 2.425), Vector3(1.495, 5.013, -2.234), Vector3(4.22224, 4.19035, 4.10884), Vector3(4.983, 3.759, 7.777)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6.7, 10.8, 18.1, 24, 29.9, 33.9, 38),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.00872665, 1.51669, -0.0244346), Vector3(-0.459021, 0.0950505, 0.00523597), Vector3(-0.268781, 1.35088, 0.270526), Vector3(0.277507, 1.40499, 0), Vector3(-0.0680678, 2.0176, -0.00174533), Vector3(-0.534071, 3.09621, -0.00174533), Vector3(-0.226773, 3.34255, 0.00205328), Vector3(-0.148353, 3.14334, -0.00174533)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_66bio"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(4.668, 6.194, 15.365)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.459021, 0.617846, 0.00523599)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_svpb1"]
+_data = {
+"New Anim": SubResource("Animation_ircnj"),
+"RESET": SubResource("Animation_66bio")
+}
+
+[node name="Node3D" type="Node3D"]
+script = SubResource("GDScript_2vp53")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("9_51sri")
+camera_effects = SubResource("CameraEffects_erdkh")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.813773, -0.260927, 0.519318, 0.00469397, 0.896474, 0.443071, -0.581164, -0.358121, 0.730752, 4.668, 6.194, 15.365)
+current = true
+far = 50.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "New Anim"
+libraries = {
+"": SubResource("AnimationLibrary_svpb1")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_xnp4h")
+
+[node name="L_Lab01" parent="." instance=ExtResource("2_8a118")]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -128.0
+offset_bottom = 128.0
+grow_horizontal = 0
+texture = ExtResource("4_qhjjv")

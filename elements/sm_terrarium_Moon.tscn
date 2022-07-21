@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxqloamibnfx7"]
+
+[ext_resource type="PackedScene" uid="uid://cnxiw8ltkp5w5" path="res://gltfs/sm_terrarium.glb" id="1_nwnwe"]
+[ext_resource type="Texture2D" uid="uid://flowme5g3snm" path="res://textures/T_Decal_Moon033.png" id="2_t6aet"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wv444"]
+emission_enabled = true
+emission = Color(0.435294, 0.211765, 0.0117647, 1)
+emission_energy = 11.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oywfj"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.290196)
+metallic = 0.67
+roughness = 0.08
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kpwxh"]
+transparency = 1
+albedo_color = Color(0.729412, 0.74902, 0.741176, 0.607843)
+metallic = 1.0
+metallic_specular = 0.0
+roughness = 0.37
+
+[node name="sm_terrarium" instance=ExtResource("1_nwnwe")]
+
+[node name="Cube" parent="." index="0"]
+surface_material_override/1 = SubResource("StandardMaterial3D_wv444")
+surface_material_override/2 = SubResource("StandardMaterial3D_oywfj")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Cube" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70447, 0)
+material_override = SubResource("StandardMaterial3D_kpwxh")
+radial_segments = 4
+rings = 3
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="Cube/CSGSphere3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.396367, 0)
+material_override = SubResource("StandardMaterial3D_kpwxh")
+radial_segments = 4
+rings = 3
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="Cube/CSGSphere3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.359664, 0)
+material_override = SubResource("StandardMaterial3D_kpwxh")
+radial_segments = 4
+rings = 3
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.724, 0)
+light_color = Color(0.290196, 0.537255, 0.619608, 1)
+light_size = 0.13
+distance_fade_enabled = true
+distance_fade_begin = 2.79
+distance_fade_length = 4.94
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.652626, 0)
+light_color = Color(0.290196, 0.537255, 0.619608, 1)
+light_size = 0.13
+distance_fade_enabled = true
+distance_fade_begin = 2.79
+distance_fade_length = 4.94
+
+[node name="Decal" type="Decal" parent="." index="3"]
+transform = Transform3D(0.0279216, 0.99961, -4.36943e-08, 0, -4.37114e-08, -1, -0.99961, 0.0279216, -1.22049e-09, 0.616313, 0.507572, 0.052577)
+extents = Vector3(0.429635, 0.365116, 0.12624)
+texture_albedo = ExtResource("2_t6aet")
+
+[node name="Decal2" type="Decal" parent="." index="4"]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -0.705433, 0.526785, 0.00553179)
+extents = Vector3(0.429635, 0.365116, 0.12624)
+texture_albedo = ExtResource("2_t6aet")

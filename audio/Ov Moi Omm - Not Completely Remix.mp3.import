@@ -1,0 +1,16 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://diyjhd1gr2sgm"
+path="res://.godot/imported/Ov Moi Omm - Not Completely Remix.mp3-1f14c31b154f38c4416e33e0d08cdb98.mp3str"
+
+[deps]
+
+source_file="res://audio/Ov Moi Omm - Not Completely Remix.mp3"
+dest_files=["res://.godot/imported/Ov Moi Omm - Not Completely Remix.mp3-1f14c31b154f38c4416e33e0d08cdb98.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0

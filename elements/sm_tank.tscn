@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2k4liyqcsvlq"]
+
+[ext_resource type="PackedScene" uid="uid://yk4di41oob0l" path="res://gltfs/sm_tank.glb" id="1_s0mng"]
+[ext_resource type="Texture2D" uid="uid://bj1gle0y1uyfs" path="res://textures/TexturesCom_SignsVarious0033_1_masked_S.png" id="2_c0o7n"]
+[ext_resource type="Texture2D" uid="uid://b1ekystghm7f5" path="res://textures/T_Decal_Oxygen.png" id="3_uc18n"]
+
+[node name="Tank" type="Node3D"]
+
+[node name="sm_tank" parent="." instance=ExtResource("1_s0mng")]
+transform = Transform3D(-0.0905108, 0, 0.995896, 0, 1, 0, -0.995896, 0, -0.0905108, 0, 0, 0)
+
+[node name="Decal" type="Decal" parent="."]
+transform = Transform3D(1.31134e-07, 1, 4.37114e-08, 3.82137e-15, 4.37114e-08, -1, -1, 1.31134e-07, 1.91069e-15, 0.600247, 0.524815, 0)
+extents = Vector3(0.3, 0.18119, 0.3)
+texture_albedo = ExtResource("2_c0o7n")
+
+[node name="Decal2" type="Decal" parent="."]
+transform = Transform3D(1.31134e-07, 1, 4.37114e-08, 3.82137e-15, 4.37114e-08, -1, -1, 1.31134e-07, 1.91069e-15, 0.540757, 1.32038, 0.0134941)
+extents = Vector3(0.425458, 0.326841, 0.1714)
+texture_albedo = ExtResource("3_uc18n")

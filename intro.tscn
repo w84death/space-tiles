@@ -1,0 +1,188 @@
+[gd_scene load_steps=13 format=3 uid="uid://cw4j5uu0amu6u"]
+
+[ext_resource type="PackedScene" uid="uid://dv52mfov1uox8" path="res://elements/sm_man.tscn" id="1_37ief"]
+[ext_resource type="Environment" uid="uid://b7i3q721mfk1t" path="res://materials/post.tres" id="2_82i4v"]
+[ext_resource type="Texture2D" uid="uid://b1ekystghm7f5" path="res://textures/T_Decal_Oxygen.png" id="3_ox31n"]
+[ext_resource type="AudioStream" uid="uid://dn2vn388v2flq" path="res://audio/Shaolin Dub - Shadow-Man.mp3" id="4_gg7d6"]
+
+[sub_resource type="GDScript" id="GDScript_xf6kj"]
+script/source = "extends Node3D
+func next_scene():
+	get_tree().change_scene(\"res://main.tscn\")
+	pass # Replace with function body.
+
+func _input(event):
+	if(event.is_pressed()):
+		next_scene()
+"
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7uxg3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ww5bs"]
+transparency = 2
+alpha_scissor_threshold = 0.05
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("3_ox31n")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2h301"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5lxs8"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_mv4me"]
+resource_name = "New Anim"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGMesh3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9827, 2, 2.2, 2.4, 2.6, 2.8, 3.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sm_man:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.175), Vector3(0, 0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"next_scene"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 6.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 5, 6.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -55.562]
+}
+
+[sub_resource type="Animation" id="Animation_xnomi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGMesh3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sm_man:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.175)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nncq8"]
+_data = {
+"New Anim": SubResource("Animation_mv4me"),
+"RESET": SubResource("Animation_xnomi")
+}
+
+[node name="intro" type="Node3D"]
+script = SubResource("GDScript_xf6kj")
+
+[node name="sm_man" parent="." instance=ExtResource("1_37ief")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.175)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.939, 3.851)
+fov = 37.2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_82i4v")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -0.344, 0, 1, -1.50367e-08, 0, 0.478, 0.636)
+visible = false
+mesh = SubResource("PlaneMesh_7uxg3")
+material = SubResource("StandardMaterial3D_ww5bs")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="."]
+transform = Transform3D(2.448, 0, 0, 0, -1.07005e-07, -2.448, 0, 2.448, -1.07005e-07, 0, 0, 0)
+mesh = SubResource("PlaneMesh_2h301")
+material = SubResource("StandardMaterial3D_5lxs8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "New Anim"
+libraries = {
+"": SubResource("AnimationLibrary_nncq8")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_gg7d6")

@@ -1,0 +1,54 @@
+[gd_scene load_steps=16 format=3 uid="uid://dfng42h3si8x0"]
+
+[ext_resource type="PackedScene" uid="uid://c6aex0kix0rd6" path="res://gltfs/sm_wall.glb" id="1_bpqgv"]
+[ext_resource type="PackedScene" uid="uid://cjxmscfxnu343" path="res://gltfs/sm_wall_clear.glb" id="2_e72mg"]
+[ext_resource type="PackedScene" uid="uid://c7f6b3nfv4i6c" path="res://gltfs/sm_box_wall.glb" id="3_4fm0i"]
+[ext_resource type="PackedScene" uid="uid://bvr5b354c75p2" path="res://gltfs/sm_floor.glb" id="4_4rfup"]
+[ext_resource type="PackedScene" uid="uid://bvl5lqjjr7fbi" path="res://gltfs/sm_box_wall_corner.glb" id="5_8i6oi"]
+[ext_resource type="PackedScene" uid="uid://de1681vibm4rp" path="res://gltfs/sm_wall_corner.glb" id="6_x6h4v"]
+[ext_resource type="PackedScene" uid="uid://dx4iho52kuo7c" path="res://gltfs/sm_wall_clear_corner.glb" id="7_3aggg"]
+[ext_resource type="PackedScene" uid="uid://bk1vtp526yhv3" path="res://gltfs/sm_glass_panel.glb" id="8_igim4"]
+[ext_resource type="Material" uid="uid://dpmxsglnct750" path="res://elements/m_glass.tres" id="9_h8yqj"]
+[ext_resource type="PackedScene" uid="uid://c7tagqc7g8kfp" path="res://gltfs/sm_wall_white.glb" id="10_04daa"]
+[ext_resource type="PackedScene" uid="uid://dae1fw4h7im5m" path="res://gltfs/sm_wall_white_corner.glb" id="11_ib0ky"]
+[ext_resource type="PackedScene" uid="uid://ccfp1n7mbbj6d" path="res://gltfs/sm_ceiling_flat.glb" id="12_ogmqy"]
+[ext_resource type="PackedScene" uid="uid://dc66ibun1050p" path="res://gltfs/sm_ceiling_edge.glb" id="13_0x1eb"]
+[ext_resource type="Material" uid="uid://csoonki80ke44" path="res://elements/m_light_ceiling.material" id="14_o4nby"]
+[ext_resource type="PackedScene" uid="uid://b4172ykvpeccm" path="res://gltfs/sm_ceiling_lamp.glb" id="14_xx7fp"]
+
+[node name="Elements" type="Node3D"]
+
+[node name="sm_wall" parent="." instance=ExtResource("1_bpqgv")]
+
+[node name="sm_wall_clear" parent="." instance=ExtResource("2_e72mg")]
+
+[node name="sm_box_wall" parent="." instance=ExtResource("3_4fm0i")]
+
+[node name="sm_floor" parent="." instance=ExtResource("4_4rfup")]
+
+[node name="sm_box_wall_corner" parent="." instance=ExtResource("5_8i6oi")]
+
+[node name="sm_wall_corner" parent="." instance=ExtResource("6_x6h4v")]
+
+[node name="sm_wall_clear_corner" parent="." instance=ExtResource("7_3aggg")]
+
+[node name="sm_wall_white" parent="." instance=ExtResource("10_04daa")]
+
+[node name="sm_glass_panel" parent="." instance=ExtResource("8_igim4")]
+
+[node name="Glass_Panel" parent="sm_glass_panel" index="0"]
+surface_material_override/1 = ExtResource("9_h8yqj")
+
+[node name="sm_ceiling_flat" parent="." instance=ExtResource("12_ogmqy")]
+
+[node name="sm_ceiling_edge" parent="." instance=ExtResource("13_0x1eb")]
+
+[node name="sm_ceiling_lamp" parent="." instance=ExtResource("14_xx7fp")]
+
+[node name="Ceiling_Lamp" parent="sm_ceiling_lamp" index="0"]
+surface_material_override/1 = ExtResource("14_o4nby")
+
+[node name="sm_wall_white_corner" parent="." instance=ExtResource("11_ib0ky")]
+
+[editable path="sm_glass_panel"]
+[editable path="sm_ceiling_lamp"]
